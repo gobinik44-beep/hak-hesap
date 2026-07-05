@@ -13,7 +13,7 @@ var VERI = {
 
   // YouTube kanal ID'si (UC... ile başlar). Kanal açılınca doldur;
   // videolar.html son videoları otomatik gösterir.
-  youtubeKanalId: "",
+  youtubeKanalId: "UC4XgN9P6gm440VyiguhWEYQ",
 
   // --- KİRA ARTIŞI ---
   // TBK m.344: konut ve çatılı işyeri kiralarında artış üst sınırı,
