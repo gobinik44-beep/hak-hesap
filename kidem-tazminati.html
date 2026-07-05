@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kıdem Tazminatı Hesaplama — 2026 Güncel Tavan 73.729,87 TL | Hak &amp; Hesap</title>
+<meta name="description" content="Kıdem tazminatı hesaplama 2026: güncel tavan 73.729,87 TL (Temmuz–Aralık), damga vergisi kesintisi ve elinize geçecek net tutar. Kim alır, istifada ne olur?">
+<link rel="canonical" href="https://hakvehesap.example/kidem-tazminati.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kıdem Tazminatı Hesaplama — 2026 Güncel Tavan 73.729,87 TL">
+<meta property="og:description" content="Güncel tavanla brüt/net kıdem tazminatınızı hesaplayın. Resmî genelge verisi.">
+<meta property="og:url" content="https://hakvehesap.example/kidem-tazminati.html">
+<meta property="og:locale" content="tr_TR">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="stil.css">
+</head>
+<body>
+<div class="sarici">
+  <header class="site"><a href="index.html">← Hak &amp; Hesap</a></header>
+  <h1>Kıdem Tazminatı Hesaplama</h1>
+  <p class="altbaslik">Her tam hizmet yılı için 30 günlük giydirilmiş brüt ücret; artan süreler
+  oranlanır (1475 s. İş K. m.14). Ücret, dönem tavanıyla sınırlıdır.</p>
+
+  <div class="kart">
+    <label for="giris">İşe giriş tarihi</label>
+    <input type="date" id="giris">
+
+    <label for="cikis">İşten çıkış tarihi</label>
+    <input type="date" id="cikis" value="2026-07-05">
+
+    <label for="ucret">Son aylık GİYDİRİLMİŞ brüt ücret (TL)</label>
+    <input type="number" id="ucret" min="1" step="any" placeholder="Örn: 45000" inputmode="decimal">
+    <p class="veri-notu">Giydirilmiş brüt = çıplak brüt maaş + düzenli yol, yemek, ikramiye vb.
+    yan hakların aylık tutarı.</p>
+
+    <button id="hesapla">Hesapla</button>
+    <div class="hata" id="hata"></div>
+
+    <div class="sonuc" id="sonuc">
+      <div class="buyuk-sonuc">
+        <div class="etiket">Net kıdem tazminatı (eline geçecek)</div>
+        <div class="deger" id="net"></div>
+      </div>
+      <table class="detay">
+        <tr><td>Hizmet süresi</td><td id="sure"></td></tr>
+        <tr><td>Tazminata esas aylık ücret</td><td id="esas"></td></tr>
+        <tr><td>Brüt kıdem tazminatı</td><td id="brut"></td></tr>
+        <tr><td>Damga vergisi (binde 7,59)</td><td id="damga"></td></tr>
+      </table>
+      <div class="hata" id="tavanUyari" style="margin-top:10px"></div>
+    </div>
+  </div>
+
+  <div class="bilgi-kutu">
+    <h3>Bu araç hak edip etmediğinize karar VERMEZ</h3>
+    Kıdem tazminatı kural olarak şu hallerde doğar: işverenin (haklı neden dışında) feshi,
+    işçinin haklı nedenle feshi, emeklilik/yaş-prim şartlarının tamamlanması, erkek işçinin
+    askerliği, kadın işçinin evlilik tarihinden itibaren 1 yıl içinde feshi, işçinin ölümü.
+    <b>Sebepsiz istifada kural olarak kıdem tazminatı doğmaz.</b> Ayrıca en az 1 tam yıl
+    çalışma şarttır.
+  </div>
+
+  <div class="bilgi-kutu">
+    <h3>Veri kaynağı</h3>
+    Tavan (01.07.2026–31.12.2026): <b>73.729,87 TL</b> — Hazine ve Maliye Bakanlığı
+    03.07.2026 tarihli 5 Sıra No.lu Genelge (iki bağımsız uzman kaynakla doğrulandı).
+    Tavana kadar olan tutar gelir vergisinden istisnadır; yalnız damga vergisi kesilir.
+    Son kontrol: <b id="veriTarihi"></b>.
+  </div>
+
+  <div class="kart">
+    <h2>Sık Sorulan Sorular</h2>
+    <h3>İstifa eden işçi kıdem tazminatı alabilir mi?</h3>
+    <p>Kural olarak hayır. İstisnalar: haklı nedenle fesih, erkek işçinin askere gitmesi,
+    kadın işçinin evlilik tarihinden itibaren 1 yıl içinde ayrılması, emeklilik veya yaş
+    dışındaki emeklilik şartlarını (sigortalılık süresi + prim günü) tamamlayarak ayrılma.</p>
+    <h3>Kıdem tazminatından hangi kesintiler yapılır?</h3>
+    <p>Tavana kadar olan tutar gelir vergisinden istisnadır; yalnız binde 7,59 damga vergisi
+    kesilir. Tavanı aşan kısım ödenirse o kısım ücret gibi vergilendirilir.</p>
+    <h3>Tavan ne anlama geliyor?</h3>
+    <p>Hesaba esas aylık ücret, dönem tavanını (Temmuz–Aralık 2026: 73.729,87 TL) aşamaz.
+    Maaşınız daha yüksekse hesap tavandan yapılır.</p>
+    <h3>Ne zaman ödenir, zamanaşımı kaç yıl?</h3>
+    <p>Fesihle birlikte derhal ödenmesi gerekir; geciken ödemeye en yüksek mevduat faizi
+    işler. Zamanaşımı 5 yıldır (25.10.2017 sonrası fesihler için).</p>
+    <h3>İhbar tazminatı aynı şey mi?</h3>
+    <p>Hayır. İhbar tazminatı, bildirim sürelerine uyulmadan yapılan fesihte ödenen ayrı bir
+    tazminattır ve kıdemden farklı olarak gelir vergisine tabidir.</p>
+  </div>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[
+    {"@type":"WebApplication","name":"Kıdem Tazminatı Hesaplama","url":"https://hakvehesap.example/kidem-tazminati.html",
+     "applicationCategory":"FinanceApplication","operatingSystem":"Web",
+     "offers":{"@type":"Offer","price":"0","priceCurrency":"TRY"},
+     "description":"Güncel tavan ve damga vergisiyle brüt/net kıdem tazminatı hesaplama aracı."},
+    {"@type":"FAQPage","mainEntity":[
+     {"@type":"Question","name":"İstifa eden işçi kıdem tazminatı alabilir mi?",
+      "acceptedAnswer":{"@type":"Answer","text":"Kural olarak hayır. İstisnalar: haklı nedenle fesih, askerlik, kadın işçinin evlilikten itibaren 1 yıl içinde ayrılması, emeklilik veya yaş dışındaki emeklilik şartlarını tamamlayarak ayrılma."}},
+     {"@type":"Question","name":"Kıdem tazminatından hangi kesintiler yapılır?",
+      "acceptedAnswer":{"@type":"Answer","text":"Tavana kadar olan tutar gelir vergisinden istisnadır; yalnız binde 7,59 damga vergisi kesilir."}},
+     {"@type":"Question","name":"Kıdem tazminatı tavanı ne anlama geliyor?",
+      "acceptedAnswer":{"@type":"Answer","text":"Hesaba esas aylık ücret dönem tavanını aşamaz. Temmuz–Aralık 2026 tavanı 73.729,87 TL'dir; maaş daha yüksekse hesap tavandan yapılır."}},
+     {"@type":"Question","name":"Kıdem tazminatı ne zaman ödenir, zamanaşımı kaç yıl?",
+      "acceptedAnswer":{"@type":"Answer","text":"Fesihle birlikte derhal ödenmesi gerekir; geciken ödemeye en yüksek mevduat faizi işler. Zamanaşımı 5 yıldır."}},
+     {"@type":"Question","name":"İhbar tazminatı ile kıdem tazminatı aynı şey mi?",
+      "acceptedAnswer":{"@type":"Answer","text":"Hayır. İhbar tazminatı bildirim sürelerine uyulmadan yapılan fesihte ödenen ayrı bir tazminattır ve gelir vergisine tabidir."}}
+    ]}
+  ]}
+  </script>
+
+  <footer class="site">Bu araç bilgilendirme amaçlıdır; hukuki/mali danışmanlık değildir.
+  Kesin hesap için işyeri kayıtları esas alınır.</footer>
+</div>
+
+<script src="veri.js"></script>
+<script src="hesap.js"></script>
+<script>
+(function () {
+  document.getElementById("veriTarihi").textContent = VERI.sonGuncelleme;
+
+  document.getElementById("hesapla").addEventListener("click", function () {
+    var hataEl = document.getElementById("hata");
+    var sonucEl = document.getElementById("sonuc");
+    var uyariEl = document.getElementById("tavanUyari");
+    hataEl.classList.remove("acik"); sonucEl.classList.remove("acik"); uyariEl.classList.remove("acik");
+
+    var giris = document.getElementById("giris").value;
+    var cikis = document.getElementById("cikis").value;
+    var ucret = parseFloat(document.getElementById("ucret").value);
+    if (!giris || !cikis) { hataEl.textContent = "Giriş ve çıkış tarihlerini seçin."; hataEl.classList.add("acik"); return; }
+
+    var s = HESAP.kidemHesapla(giris, cikis, ucret, VERI);
+    if (s.hata) { hataEl.textContent = s.hata; hataEl.classList.add("acik"); return; }
+
+    document.getElementById("net").textContent = HESAP.tl(s.net);
+    document.getElementById("sure").textContent = s.yil + " yıl " + s.kalanGun + " gün";
+    document.getElementById("esas").textContent = HESAP.tl(s.esasUcret);
+    document.getElementById("brut").textContent = HESAP.tl(s.brutKidem);
+    document.getElementById("damga").textContent = "−" + HESAP.tl(s.damga);
+    if (s.tavanUygulandi) {
+      uyariEl.textContent = "Ücretiniz yasal tavanı aştığı için hesap, dönem tavanı olan " +
+        HESAP.tl(s.tavan) + " üzerinden yapıldı.";
+      uyariEl.classList.add("acik");
+    }
+    sonucEl.classList.add("acik");
+  });
+})();
+</script>
+</body>
+</html>

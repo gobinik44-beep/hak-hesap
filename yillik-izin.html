@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yıllık İzin Hesaplama — Kaç Gün İzin Hakkım Var? | Hak &amp; Hesap</title>
+<meta name="description" content="Yıllık izin hesaplama: hizmet yılına ve yaşa göre kaç gün izin hakkınız var? Kullanılmayan izinler yanar mı, paraya çevrilir mi? (İş Kanunu m.53)">
+<link rel="canonical" href="https://hakvehesap.example/yillik-izin.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Yıllık İzin Hesaplama — Kaç Gün İzin Hakkım Var?">
+<meta property="og:description" content="Hizmet yılına ve yaşa göre yasal asgari yıllık izin süreniz + az bilinen kurallar.">
+<meta property="og:url" content="https://hakvehesap.example/yillik-izin.html">
+<meta property="og:locale" content="tr_TR">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="stil.css">
+</head>
+<body>
+<div class="sarici">
+  <header class="site"><a href="index.html">← Hak &amp; Hesap</a></header>
+  <h1>Yıllık İzin Hesaplama</h1>
+  <p class="altbaslik">4857 sayılı İş Kanunu m.53'e göre yasal <b>asgari</b> yıllık ücretli izin süresi.
+  Sözleşmeyle daha uzun süre kararlaştırılabilir.</p>
+
+  <div class="kart">
+    <label for="yil">Aynı işverende tamamlanan hizmet yılı</label>
+    <input type="number" id="yil" min="0" step="1" placeholder="Örn: 6">
+
+    <label for="yas">Yaşınız (isteğe bağlı)</label>
+    <input type="number" id="yas" min="15" max="99" step="1" placeholder="18 yaş ve altı veya 50+ için önemli">
+
+    <label class="onay"><input type="checkbox" id="yeralti"> Yer altı işlerinde çalışıyorum (maden vb.)</label>
+
+    <button id="hesapla">Hesapla</button>
+    <div class="hata" id="hata"></div>
+
+    <div class="sonuc" id="sonuc">
+      <div class="buyuk-sonuc">
+        <div class="etiket">Yasal asgari yıllık izin</div>
+        <div class="deger" id="gun"></div>
+      </div>
+      <p class="veri-notu" id="not"></p>
+    </div>
+  </div>
+
+  <div class="bilgi-kutu">
+    <h3>Yasal cetvel (m.53)</h3>
+    <ul>
+      <li>1–5 yıl (5. yıl dahil): <b>14 gün</b></li>
+      <li>5 yıldan fazla, 15 yıldan az: <b>20 gün</b></li>
+      <li>15 yıl (dahil) ve fazlası: <b>26 gün</b></li>
+      <li>18 yaş ve altı ile 50 yaş ve üzeri işçiler: en az <b>20 gün</b></li>
+      <li>Yer altı işlerinde çalışanlar: yukarıdaki sürelere <b>+4 gün</b></li>
+    </ul>
+  </div>
+
+  <div class="bilgi-kutu">
+    <h3>Bilmeniz gerekenler</h3>
+    <ul>
+      <li>İzne hak kazanmak için en az <b>1 tam yıl</b> çalışmış olmak gerekir (m.54).</li>
+      <li>İzin süresine denk gelen hafta tatili, ulusal bayram ve genel tatil günleri
+      izin süresinden <b>sayılmaz</b> (m.56) — yani süreler fiilen daha uzundur.</li>
+      <li>Bu kurallar İş Kanunu kapsamındaki işçiler içindir; memurlar ayrı mevzuata tabidir.</li>
+    </ul>
+  </div>
+
+  <div class="kart">
+    <h2>Sık Sorulan Sorular</h2>
+    <h3>Kullanılmayan izinler yanar mı?</h3>
+    <p>Hayır, birikir. İş sözleşmesi sona erdiğinde kullanılmamış tüm izinlerin ücreti, son
+    çıplak brüt ücret üzerinden ödenir; zamanaşımı fesihten itibaren 5 yıldır.</p>
+    <h3>Çalışırken izin paraya çevrilebilir mi?</h3>
+    <p>Hayır. Yıllık izin dinlenme hakkıdır; iş ilişkisi devam ederken ücret karşılığında
+    vazgeçilemez. Paraya çevrilme yalnız sözleşme sona erdiğinde olur.</p>
+    <h3>İzin bölünerek kullanılabilir mi?</h3>
+    <p>Tarafların anlaşmasıyla bölümler hâlinde kullanılabilir; ancak bir bölümü 10 günden
+    az olamaz.</p>
+    <h3>Yol izni nedir?</h3>
+    <p>İznini işyerinin bulunduğu yerden başka bir yerde geçirecek işçiye, talep etmesi ve
+    belgelemesi hâlinde 4 güne kadar ücretsiz yol izni verilir.</p>
+    <h3>Deneme süresi izin hesabına dahil mi?</h3>
+    <p>Evet. Bir yıllık bekleme süresinin hesabında deneme süresi de sayılır.</p>
+  </div>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[
+    {"@type":"WebApplication","name":"Yıllık İzin Hesaplama","url":"https://hakvehesap.example/yillik-izin.html",
+     "applicationCategory":"BusinessApplication","operatingSystem":"Web",
+     "offers":{"@type":"Offer","price":"0","priceCurrency":"TRY"},
+     "description":"Hizmet yılı ve yaşa göre yasal asgari yıllık ücretli izin süresi hesaplama aracı."},
+    {"@type":"FAQPage","mainEntity":[
+     {"@type":"Question","name":"Kullanılmayan yıllık izinler yanar mı?",
+      "acceptedAnswer":{"@type":"Answer","text":"Hayır, birikir. İş sözleşmesi sona erdiğinde kullanılmamış izinlerin ücreti son çıplak brüt ücret üzerinden ödenir; zamanaşımı fesihten itibaren 5 yıldır."}},
+     {"@type":"Question","name":"Çalışırken yıllık izin paraya çevrilebilir mi?",
+      "acceptedAnswer":{"@type":"Answer","text":"Hayır. İzin dinlenme hakkıdır; paraya çevrilme yalnız iş sözleşmesi sona erdiğinde olur."}},
+     {"@type":"Question","name":"Yıllık izin bölünerek kullanılabilir mi?",
+      "acceptedAnswer":{"@type":"Answer","text":"Tarafların anlaşmasıyla bölümler hâlinde kullanılabilir; ancak bir bölümü 10 günden az olamaz."}},
+     {"@type":"Question","name":"Yol izni nedir?",
+      "acceptedAnswer":{"@type":"Answer","text":"İznini başka bir yerde geçirecek işçiye, talep etmesi ve belgelemesi hâlinde 4 güne kadar ücretsiz yol izni verilir."}},
+     {"@type":"Question","name":"Deneme süresi yıllık izin hesabına dahil mi?",
+      "acceptedAnswer":{"@type":"Answer","text":"Evet. Bir yıllık bekleme süresinin hesabında deneme süresi de sayılır."}}
+    ]}
+  ]}
+  </script>
+
+  <footer class="site">Bu araç bilgilendirme amaçlıdır; hukuki danışmanlık değildir.</footer>
+</div>
+
+<script src="veri.js"></script>
+<script src="hesap.js"></script>
+<script>
+(function () {
+  document.getElementById("hesapla").addEventListener("click", function () {
+    var hataEl = document.getElementById("hata");
+    var sonucEl = document.getElementById("sonuc");
+    hataEl.classList.remove("acik"); sonucEl.classList.remove("acik");
+
+    var yil = parseFloat(document.getElementById("yil").value);
+    var yasStr = document.getElementById("yas").value;
+    var yas = yasStr === "" ? null : parseFloat(yasStr);
+    var yeralti = document.getElementById("yeralti").checked;
+
+    if (isNaN(yil)) { hataEl.textContent = "Tamamlanan hizmet yılını girin."; hataEl.classList.add("acik"); return; }
+
+    var s = HESAP.izinHesapla(yil, yas, yeralti);
+    if (s.hata) { hataEl.textContent = s.hata; hataEl.classList.add("acik"); return; }
+
+    document.getElementById("gun").textContent = s.gun + " gün";
+    var notlar = [];
+    if (s.not) notlar.push(s.not);
+    if (s.yasKurali) notlar.push("Yaş kuralı uygulandı: 18 yaş ve altı / 50 yaş ve üzeri için asgari 20 gündür.");
+    if (yeralti && s.gun > 0) notlar.push("Yer altı işleri için +4 gün eklendi.");
+    document.getElementById("not").textContent = notlar.join(" ");
+    sonucEl.classList.add("acik");
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aylara Göre Kira Artış Oranları 2026 (Güncel Tablo) | Hak &amp; Hesap</title>
+<meta name="description" content="2026 kira artış oranları ay ay tablo: Ocak %34,88'den Temmuz %32,03'e. TÜFE 12 aylık ortalamalara göre değişim, her ay güncellenir.">
+<link rel="canonical" href="https://hakvehesap.example/kira-artis-oranlari.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Aylara Göre Kira Artış Oranları 2026 — Güncel Tablo">
+<meta property="og:description" content="Ay ay yasal kira artış oranları, TÜİK verisiyle her ay güncellenir.">
+<meta property="og:url" content="https://hakvehesap.example/kira-artis-oranlari.html">
+<meta property="og:locale" content="tr_TR">
+<link rel="stylesheet" href="stil.css">
+</head>
+<body>
+<div class="sarici">
+  <header class="site"><a href="index.html">← Hak &amp; Hesap</a></header>
+  <h1>Aylara Göre Kira Artış Oranları (2026)</h1>
+  <p class="altbaslik">Sözleşmenin yenilendiği aya göre uygulanabilecek yasal azami artış
+  oranları (TÜFE 12 aylık ortalamalara göre değişim). Yeni TÜİK verisi açıklandıkça bu
+  tablo güncellenir.</p>
+
+  <div class="kart">
+    <table class="detay" id="tablo">
+      <tr><td><b>Yenileme ayı</b></td><td><b>Yasal azami oran</b></td></tr>
+    </table>
+    <p class="veri-notu">Son güncelleme: <b id="veriTarihi"></b>. Bir sonraki oran, TÜİK'in
+    aylık TÜFE bülteniyle (her ayın ilk günlerinde) eklenir.</p>
+  </div>
+
+  <div class="kart">
+    <p>Kiranızın yeni tutarını kuruşuyla öğrenmek için
+    <a href="kira-artisi.html" style="color:var(--vurgu)">kira artışı hesaplama aracını</a> kullanın.</p>
+  </div>
+
+  <div class="bilgi-kutu">
+    <h3>Oran nasıl belirleniyor?</h3>
+    TBK m.344 gereği konut ve çatılı işyeri kiralarında artış, bir önceki kira yılına ait
+    TÜFE'nin <b>on iki aylık ortalamalara göre değişim oranını</b> geçemez. Uygulamada,
+    sözleşmenin yenilendiği aydan bir önceki aya ait TÜİK verisi esas alınır. Bu oran,
+    haberlerdeki "yıllık enflasyon" rakamından farklıdır.
+  </div>
+
+  <footer class="site">Bu sayfa bilgilendirme amaçlıdır; hukuki danışmanlık değildir.</footer>
+</div>
+
+<script src="veri.js"></script>
+<script>
+(function () {
+  var t = document.getElementById("tablo");
+  var keys = Object.keys(VERI.kiraOranlari).sort().reverse();
+  keys.forEach(function (k) {
+    var tr = document.createElement("tr");
+    tr.innerHTML = "<td>" + VERI.kiraAyAdlari[k] + "</td><td>%" +
+      VERI.kiraOranlari[k].toLocaleString("tr-TR", { minimumFractionDigits: 2 }) + "</td>";
+    t.appendChild(tr);
+  });
+  document.getElementById("veriTarihi").textContent = VERI.sonGuncelleme;
+})();
+</script>
+</body>
+</html>

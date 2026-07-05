@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kira Artışı Hesaplama — Temmuz 2026 Oranı %32,03 | Hak &amp; Hesap</title>
+<meta name="description" content="Kira artışı hesaplama Temmuz 2026: yasal oran %32,03 (TÜFE 12 aylık ortalama). Kiranızın en fazla ne kadar olacağını kuruşuyla hesaplayın; ay ay güncel oranlar.">
+<link rel="canonical" href="https://hakvehesap.example/kira-artisi.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kira Artışı Hesaplama — Temmuz 2026 Oranı %32,03">
+<meta property="og:description" content="Yasal azami kira artışını kuruşuyla hesaplayın. Doğrulanmış TÜİK verisi, ay ay güncel oranlar.">
+<meta property="og:url" content="https://hakvehesap.example/kira-artisi.html">
+<meta property="og:locale" content="tr_TR">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="stil.css">
+</head>
+<body>
+<div class="sarici">
+  <header class="site"><a href="index.html">← Hak &amp; Hesap</a></header>
+  <h1>Kira Artışı Hesaplama</h1>
+  <p class="altbaslik">Yasal azami artış: sözleşmenin yenilendiği aydan bir önceki aya ait TÜFE
+  "on iki aylık ortalamalara göre değişim" oranı (TBK m.344).</p>
+
+  <div class="kart">
+    <label for="kira">Mevcut aylık kira (TL)</label>
+    <input type="number" id="kira" min="1" step="any" placeholder="Örn: 20000" inputmode="decimal">
+
+    <label for="ay">Sözleşmenin yenilendiği ay</label>
+    <select id="ay"></select>
+    <p class="veri-notu">Oranlar, ilgili yenileme ayına uygulanacak şekilde eşleştirilmiştir.</p>
+
+    <button id="hesapla">Hesapla</button>
+    <div class="hata" id="hata"></div>
+
+    <div class="sonuc" id="sonuc">
+      <div class="buyuk-sonuc">
+        <div class="etiket">Yeni azami kira</div>
+        <div class="deger" id="yeniKira"></div>
+      </div>
+      <table class="detay">
+        <tr><td>Uygulanan oran (TÜFE 12 aylık ort.)</td><td id="oran"></td></tr>
+        <tr><td>Aylık artış tutarı</td><td id="artis"></td></tr>
+        <tr><td>Mevcut kira</td><td id="eskiKira"></td></tr>
+      </table>
+      <p class="veri-notu">Bu tutar yasal ÜST SINIRDIR; taraflar daha düşük bir artışta anlaşabilir.</p>
+    </div>
+  </div>
+
+  <div class="bilgi-kutu">
+    <h3>Bilmeniz gerekenler</h3>
+    <ul>
+      <li>Oran, yıllık enflasyonla (ör. Haziran 2026 yıllık TÜFE %32,11) karıştırılmamalıdır;
+      kanun <b>12 aylık ortalamalara göre değişim</b> oranını esas alır (Temmuz 2026 için %32,03).</li>
+      <li>Aynı üst sınır hem konut hem çatılı işyeri kiraları için geçerlidir.</li>
+      <li>Konutlarda uygulanan %25 sınırı 1 Temmuz 2024'te sona erdi; artık yalnız TÜFE sınırı geçerli.</li>
+      <li>5 yılı aşan kiracılıkta ev sahibi mahkemeden "kira tespiti" isteyebilir; bu ayrı bir süreçtir.</li>
+    </ul>
+  </div>
+
+  <div class="kart">
+    <p>Geçmiş ayların oranları için
+    <a href="kira-artis-oranlari.html" style="color:var(--vurgu)">aylara göre kira artış oranları tablosuna</a> bakın.</p>
+  </div>
+
+  <div class="bilgi-kutu">
+    <h3>Veri kaynağı</h3>
+    TÜİK TÜFE bültenleri (son bülten: 3 Temmuz 2026, Haziran verileri).
+    Oranlar 3 bağımsız kaynakla çapraz doğrulandı. Son kontrol: <b id="veriTarihi"></b>.
+  </div>
+
+  <div class="kart">
+    <h2>Sık Sorulan Sorular</h2>
+    <h3>Ev sahibi yasal orandan fazla artış isteyebilir mi?</h3>
+    <p>Hayır. Konut ve çatılı işyeri kiralarında TÜFE 12 aylık ortalaması yasal üst sınırdır
+    (TBK m.344). Sözleşmede daha yüksek bir oran yazsa bile bu sınırı aşan kısım geçersizdir.</p>
+    <h3>Kira artışı hangi ayda yapılır?</h3>
+    <p>Sözleşmenin yenilendiği ayda (kira başlangıcının yıldönümünde). Uygulanacak oran,
+    yenileme ayından bir önceki aya ait TÜFE 12 aylık ortalama verisidir.</p>
+    <h3>Yıllık enflasyon mu, 12 aylık ortalama mı esas alınır?</h3>
+    <p>12 aylık ortalama. Örneğin Temmuz 2026'da yıllık enflasyon %32,11 iken kira artışında
+    geçerli oran %32,03'tür; ikisi sık karıştırılır.</p>
+    <h3>5 yıldan uzun süredir oturan kiracının kirası nasıl belirlenir?</h3>
+    <p>Beş yılın sonunda ev sahibi mahkemeden rayiç bedele göre "kira tespiti" isteyebilir.
+    Bu, TÜFE sınırından bağımsız, ayrı bir dava sürecidir.</p>
+    <h3>Konutlardaki %25 artış sınırı hâlâ geçerli mi?</h3>
+    <p>Hayır. Geçici %25 sınırı 1 Temmuz 2024'te sona erdi; artık yalnız TÜFE 12 aylık
+    ortalama sınırı uygulanır.</p>
+  </div>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[
+    {"@type":"WebApplication","name":"Kira Artışı Hesaplama","url":"https://hakvehesap.example/kira-artisi.html",
+     "applicationCategory":"FinanceApplication","operatingSystem":"Web",
+     "offers":{"@type":"Offer","price":"0","priceCurrency":"TRY"},
+     "description":"TÜFE 12 aylık ortalamaya göre yasal azami kira artışı hesaplama aracı."},
+    {"@type":"FAQPage","mainEntity":[
+     {"@type":"Question","name":"Ev sahibi yasal orandan fazla artış isteyebilir mi?",
+      "acceptedAnswer":{"@type":"Answer","text":"Hayır. Konut ve çatılı işyeri kiralarında TÜFE 12 aylık ortalaması yasal üst sınırdır (TBK m.344). Sözleşmede daha yüksek oran yazsa bile aşan kısım geçersizdir."}},
+     {"@type":"Question","name":"Kira artışı hangi ayda yapılır?",
+      "acceptedAnswer":{"@type":"Answer","text":"Sözleşmenin yenilendiği ayda. Uygulanacak oran, yenileme ayından bir önceki aya ait TÜFE 12 aylık ortalama verisidir."}},
+     {"@type":"Question","name":"Yıllık enflasyon mu, 12 aylık ortalama mı esas alınır?",
+      "acceptedAnswer":{"@type":"Answer","text":"12 aylık ortalama esas alınır. Temmuz 2026'da yıllık enflasyon %32,11 iken kira artışında geçerli oran %32,03'tür."}},
+     {"@type":"Question","name":"5 yıldan uzun süredir oturan kiracının kirası nasıl belirlenir?",
+      "acceptedAnswer":{"@type":"Answer","text":"Beş yılın sonunda ev sahibi mahkemeden rayiç bedele göre kira tespiti isteyebilir; bu TÜFE sınırından bağımsız ayrı bir dava sürecidir."}},
+     {"@type":"Question","name":"Konutlardaki %25 artış sınırı hâlâ geçerli mi?",
+      "acceptedAnswer":{"@type":"Answer","text":"Hayır. Geçici %25 sınırı 1 Temmuz 2024'te sona erdi; artık yalnız TÜFE 12 aylık ortalama sınırı uygulanır."}}
+    ]}
+  ]}
+  </script>
+
+  <footer class="site">Bu araç bilgilendirme amaçlıdır; hukuki danışmanlık değildir.</footer>
+</div>
+
+<script src="veri.js"></script>
+<script src="hesap.js"></script>
+<script>
+(function () {
+  var aySec = document.getElementById("ay");
+  var anahtarlar = Object.keys(VERI.kiraOranlari).sort();
+  for (var i = anahtarlar.length - 1; i >= 0; i--) {
+    var o = document.createElement("option");
+    o.value = anahtarlar[i];
+    o.textContent = VERI.kiraAyAdlari[anahtarlar[i]] + " (%" +
+      VERI.kiraOranlari[anahtarlar[i]].toLocaleString("tr-TR") + ")";
+    aySec.appendChild(o);
+  }
+  document.getElementById("veriTarihi").textContent = VERI.sonGuncelleme;
+
+  document.getElementById("hesapla").addEventListener("click", function () {
+    var hataEl = document.getElementById("hata");
+    var sonucEl = document.getElementById("sonuc");
+    hataEl.classList.remove("acik"); sonucEl.classList.remove("acik");
+
+    var kira = parseFloat(document.getElementById("kira").value);
+    var s = HESAP.kiraHesapla(kira, VERI.kiraOranlari[aySec.value]);
+    if (s.hata) { hataEl.textContent = s.hata; hataEl.classList.add("acik"); return; }
+
+    document.getElementById("yeniKira").textContent = HESAP.tl(s.yeniKira);
+    document.getElementById("oran").textContent = "%" + s.oran.toLocaleString("tr-TR");
+    document.getElementById("artis").textContent = "+" + HESAP.tl(s.artis);
+    document.getElementById("eskiKira").textContent = HESAP.tl(kira);
+    sonucEl.classList.add("acik");
+  });
+})();
+</script>
+</body>
+</html>
