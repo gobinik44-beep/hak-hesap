@@ -1,4 +1,4 @@
-// ============================================================
+﻿// ============================================================
 // VERİ DOSYASI — tüm güncel/dönemsel değerler SADECE burada.
 // Son kontrol: 5 Temmuz 2026
 // Güncelleme talimatı: README.md
@@ -9,7 +9,7 @@ var VERI = {
 
   // Site adresi — yayın sonrası alan-adi.ps1 ile tek komutta değişir.
   // Canonical/OG etiketleri, sitemap ve video açıklamaları buradan beslenir.
-  siteAdresi: "https://hakvehesap.example",
+  siteAdresi: "https://gobinik44-beep.github.io/hak-hesap",
 
   // YouTube kanal ID'si (UC... ile başlar). Kanal açılınca doldur;
   // videolar.html son videoları otomatik gösterir.

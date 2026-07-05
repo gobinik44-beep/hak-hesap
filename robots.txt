@@ -1,4 +1,4 @@
-User-agent: *
+﻿User-agent: *
 Allow: /
 
-Sitemap: https://hakvehesap.example/sitemap.xml
+Sitemap: https://gobinik44-beep.github.io/hak-hesap/sitemap.xml
