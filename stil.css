@@ -133,7 +133,7 @@ h1 {
 .yuzen-kart .satir { display: flex; justify-content: space-between; font-size: .9rem; padding: 9px 0; border-top: 1px solid var(--cizgi); }
 .yuzen-kart .satir b { font-weight: 700; }
 .mini-rozet {
-  position: absolute; right: -14px; top: -18px;
+  position: absolute; right: -10px; top: -16px; z-index: 2;
   background: linear-gradient(120deg, var(--altin), #c98f35); color: #201404;
   font-size: .75rem; font-weight: 700; padding: 7px 13px; border-radius: 999px;
   box-shadow: 0 10px 30px -8px rgba(232,177,88,.5); animation: yuz 5s 1s ease-in-out infinite;
