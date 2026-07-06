@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Videos — One Money Rule a Day | Paycheck &amp; Benefits</title>
+<meta name="description" content="Daily 60-second videos on Social Security, wages, credit and debt rights — official sources only.">
+<link rel="canonical" href="https://gobinik44-beep.github.io/hak-hesap/en/videos.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Videos | Paycheck &amp; Benefits">
+<meta property="og:url" content="https://gobinik44-beep.github.io/hak-hesap/en/videos.html">
+<meta property="og:locale" content="en_US">
+<link rel="stylesheet" href="../stil.css">
+<style>
+:root { --vurgu:#1d6a94; --vurgu2:#14506f; --vurgu-acik:#e2eff7; }
+@media (prefers-color-scheme: dark) { :root { --vurgu:#4ca3cf; --vurgu2:#7dc0e0; --vurgu-acik:#132836; } }
+header.site a::before { content: "$"; }
+.video-cerceve { position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; border: 1px solid var(--cizgi); }
+.video-cerceve iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+</style>
+</head>
+<body>
+<div class="sarici">
+  <header class="site"><a href="index.html">← Paycheck &amp; Benefits</a></header>
+  <h1>Videos</h1>
+  <p class="altbaslik">One money rule a day — short, sourced, no fluff.</p>
+
+  <div class="kart" id="videoKart"></div>
+
+  <footer class="site">Educational content only — not legal or financial advice.</footer>
+</div>
+
+<script src="../veri.js"></script>
+<script>
+(function () {
+  var k = document.getElementById("videoKart");
+  var id = VERI.youtubeKanalIdEN;
+  if (id && id.indexOf("UC") === 0) {
+    var liste = "UU" + id.slice(2);
+    k.innerHTML = '<div class="video-cerceve"><iframe loading="lazy" ' +
+      'src="https://www.youtube.com/embed/videoseries?list=' + liste + '" ' +
+      'title="Paycheck & Benefits videos" allowfullscreen ' +
+      'allow="accelerometer; encrypted-media; picture-in-picture"></iframe></div>' +
+      '<p class="veri-notu">This playlist updates automatically with our latest uploads.</p>';
+  } else {
+    k.innerHTML = "<p>Channel launching soon.</p>";
+  }
+})();
+</script>
+</body>
+</html>

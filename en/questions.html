@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Money Rules Q&amp;A — Paycheck, Benefits, Credit &amp; Debt Rights | Paycheck &amp; Benefits</title>
+<meta name="description" content="Can you discuss your salary? When can Social Security be claimed? Debt collector limits? Sourced answers to the money questions Americans ask most.">
+<link rel="canonical" href="https://gobinik44-beep.github.io/hak-hesap/en/questions.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Money Rules Q&amp;A — sourced answers">
+<meta property="og:url" content="https://gobinik44-beep.github.io/hak-hesap/en/questions.html">
+<meta property="og:locale" content="en_US">
+<link rel="stylesheet" href="../stil.css">
+<style>
+:root { --vurgu:#1d6a94; --vurgu2:#14506f; --vurgu-acik:#e2eff7; }
+@media (prefers-color-scheme: dark) { :root { --vurgu:#4ca3cf; --vurgu2:#7dc0e0; --vurgu-acik:#132836; } }
+header.site a::before { content: "$"; }
+</style>
+</head>
+<body>
+<div class="sarici">
+  <header class="site"><a href="index.html">← Paycheck &amp; Benefits</a></header>
+  <h1>Money Rules: Q&amp;A</h1>
+  <p class="altbaslik">Every answer cites its official source. These also run daily as
+  60-second videos on our YouTube channel.</p>
+
+  <div id="liste"></div>
+
+  <footer class="site">Educational content only — not legal or financial advice.</footer>
+</div>
+
+<script src="../sorular_en.js"></script>
+<script>
+(function () {
+  var adlar = { "social-security": "Social Security & Medicare", "paycheck": "Your Paycheck",
+                "leave": "Family & Medical Leave", "credit": "Credit Rights",
+                "debt": "Debt Collection", "consumer": "Consumer Rights" };
+  var gruplar = {};
+  SORULAR_EN.forEach(function (s) { (gruplar[s.kategori] = gruplar[s.kategori] || []).push(s); });
+  var kok = document.getElementById("liste");
+  Object.keys(gruplar).forEach(function (k) {
+    var kart = document.createElement("div");
+    kart.className = "kart";
+    var h = "<h2>" + (adlar[k] || k) + "</h2>";
+    gruplar[k].forEach(function (s) {
+      h += "<h3>" + s.soru + "</h3><p>" + s.cevap_soz +
+           " <a class='veri-notu' style='color:var(--vurgu)' rel='noopener' target='_blank' href='" +
+           s.kaynak_url + "'>Source: " + s.kaynak + "</a></p>";
+    });
+    kart.innerHTML = h;
+    kok.appendChild(kart);
+  });
+})();
+</script>
+</body>
+</html>

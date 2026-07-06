@@ -50,7 +50,17 @@ var VERI = {
   ],
 
   // Kıdem tazminatı kesintisi: yalnız damga vergisi (binde 7,59).
-  damgaVergisiOrani: 0.00759
+  damgaVergisiOrani: 0.00759,
+
+  // --- EN (Paycheck & Benefits) ---
+  youtubeKanalIdEN: "UCNK3iz5U6uU3QmkSYS_lCog",
+  // US Social Security 2026 (kaynak: ssa.gov, çapraz doğrulandı 2026-07-06)
+  usa2026: {
+    colaPct: 2.8,
+    wageBase: 184500,
+    earningsLimitUnderFRA: 24480,   // $1 withheld per $2 over
+    earningsLimitFRAYear: 65160     // $1 withheld per $3 over, until FRA month
+  }
 };
 
 // Node.js test ortamı için:

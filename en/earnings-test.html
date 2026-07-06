@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Social Security Earnings Test Calculator 2026 — How Much Is Withheld? | Paycheck &amp; Benefits</title>
+<meta name="description" content="Working while collecting Social Security? 2026 limits: $24,480 under FRA, $65,160 in your FRA year. Calculate exactly how much of your benefit is withheld.">
+<link rel="canonical" href="https://gobinik44-beep.github.io/hak-hesap/en/earnings-test.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Social Security Earnings Test Calculator (2026)">
+<meta property="og:description" content="See exactly how much of your benefit is withheld if you work while collecting.">
+<meta property="og:url" content="https://gobinik44-beep.github.io/hak-hesap/en/earnings-test.html">
+<meta property="og:locale" content="en_US">
+<link rel="stylesheet" href="../stil.css">
+<style>
+:root { --vurgu:#1d6a94; --vurgu2:#14506f; --vurgu-acik:#e2eff7; }
+@media (prefers-color-scheme: dark) { :root { --vurgu:#4ca3cf; --vurgu2:#7dc0e0; --vurgu-acik:#132836; } }
+header.site a::before { content: "$"; }
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication",
+ "name":"Social Security Earnings Test Calculator 2026",
+ "url":"https://gobinik44-beep.github.io/hak-hesap/en/earnings-test.html",
+ "applicationCategory":"FinanceApplication","operatingSystem":"Web",
+ "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+ "description":"Calculates Social Security benefit withholding under the 2026 retirement earnings test."}
+</script>
+</head>
+<body>
+<div class="sarici">
+  <header class="site"><a href="index.html">← Paycheck &amp; Benefits</a></header>
+  <h1>Social Security Earnings Test Calculator (2026)</h1>
+  <p class="altbaslik">Collecting benefits and still working? Below full retirement age,
+  earnings above the annual limit temporarily reduce your checks. See your exact number.</p>
+
+  <div class="kart">
+    <label for="gelir">Your expected 2026 work earnings ($ / year)</label>
+    <input type="number" id="gelir" min="0" step="any" placeholder="e.g. 30000" inputmode="decimal">
+
+    <label for="durum">Your situation in 2026</label>
+    <select id="durum">
+      <option value="under">Under full retirement age all year</option>
+      <option value="fraYear">Reaching full retirement age during 2026</option>
+      <option value="after">Already past full retirement age</option>
+    </select>
+
+    <button id="hesapla">Calculate</button>
+    <div class="hata" id="hata"></div>
+
+    <div class="sonuc" id="sonuc">
+      <div class="buyuk-sonuc">
+        <div class="etiket">Estimated benefit withholding in 2026</div>
+        <div class="deger" id="kesinti"></div>
+      </div>
+      <table class="detay">
+        <tr><td>Annual earnings limit</td><td id="limit"></td></tr>
+        <tr><td>Earnings above the limit</td><td id="asan"></td></tr>
+        <tr><td>Withholding rule</td><td id="kural"></td></tr>
+      </table>
+      <p class="veri-notu" id="not"></p>
+    </div>
+  </div>
+
+  <div class="bilgi-kutu">
+    <h3>Good to know</h3>
+    <ul>
+      <li>Withheld benefits are not lost forever — at full retirement age your monthly
+      benefit is recalculated to credit the withheld months.</li>
+      <li>Only wages and self-employment earnings count; pensions, investments and
+      withdrawals don't.</li>
+      <li>From the month you reach full retirement age, there is <b>no earnings limit</b>.</li>
+    </ul>
+  </div>
+
+  <div class="bilgi-kutu">
+    <h3>Source</h3>
+    2026 exempt amounts ($24,480 / $65,160) from the Social Security Administration
+    (ssa.gov, retirement earnings test). Verified July 6, 2026.
+  </div>
+
+  <footer class="site">Educational estimate — your exact figures come from SSA.</footer>
+</div>
+
+<script src="../veri.js"></script>
+<script src="../hesap_en.js"></script>
+<script>
+(function () {
+  document.getElementById("hesapla").addEventListener("click", function () {
+    var hataEl = document.getElementById("hata");
+    var sonucEl = document.getElementById("sonuc");
+    hataEl.classList.remove("acik"); sonucEl.classList.remove("acik");
+
+    var gelir = parseFloat(document.getElementById("gelir").value);
+    var mode = document.getElementById("durum").value;
+    var s = HESAP_EN.earningsTest(gelir, mode, VERI.usa2026);
+    if (s.hata) { hataEl.textContent = s.hata; hataEl.classList.add("acik"); return; }
+
+    document.getElementById("kesinti").textContent = HESAP_EN.usd(s.withheld);
+    document.getElementById("limit").textContent = s.limit === null ? "No limit" : HESAP_EN.usd(s.limit);
+    document.getElementById("asan").textContent = HESAP_EN.usd(s.over || 0);
+    document.getElementById("kural").textContent =
+      mode === "after" ? "None — past FRA" :
+      (mode === "fraYear" ? "$1 withheld per $3 over" : "$1 withheld per $2 over");
+    document.getElementById("not").textContent =
+      mode === "after" ? "You're past full retirement age — you can earn any amount with no reduction." :
+      (s.withheld === 0 ? "You're under the limit — no withholding." :
+       "SSA typically withholds full monthly checks until this amount is covered, then payments resume.");
+    sonucEl.classList.add("acik");
+  });
+})();
+</script>
+</body>
+</html>

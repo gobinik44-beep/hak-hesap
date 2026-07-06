@@ -86,6 +86,18 @@ esit("izin 16 yil yas 55 (26 kalir)", H.izinHesapla(16, 55, false).gun, 26);
 esit("izin yeralti 2 yil (+4)", H.izinHesapla(2, null, true).gun, 18);
 esit("izin 0 yil hak yok", H.izinHesapla(0, null, false).gun, 0);
 
+// ================= EN: SSA EARNINGS TEST =================
+const HEN = require("./hesap_en.js");
+const USA = VERI.usa2026;
+// Under FRA: (30.000 − 24.480) / 2 = 2.760
+esit("en under 30000", HEN.earningsTest(30000, "under", USA).withheld, 2760);
+esit("en under limit alti", HEN.earningsTest(20000, "under", USA).withheld, 0);
+esit("en under tam sinir", HEN.earningsTest(24480, "under", USA).withheld, 0);
+// FRA year: (70.000 − 65.160) / 3 = 1.613,33
+esit("en fraYear 70000", HEN.earningsTest(70000, "fraYear", USA).withheld, 1613.33);
+esit("en after limitsiz", HEN.earningsTest(999999, "after", USA).withheld, 0);
+esit("en negatif hata", !!HEN.earningsTest(-5, "under", USA).hata, true);
+
 // ================= SONUÇ =================
 console.log("\n" + ok + " test GECTI, " + fail + " test KALDI.");
 process.exit(fail === 0 ? 0 : 1);
