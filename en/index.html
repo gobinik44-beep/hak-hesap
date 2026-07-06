@@ -16,57 +16,144 @@
 <meta name="twitter:card" content="summary">
 <link rel="stylesheet" href="../stil.css">
 <style>
-:root { --vurgu:#1d6a94; --vurgu2:#14506f; --vurgu-acik:#e2eff7; }
-@media (prefers-color-scheme: dark) { :root { --vurgu:#4ca3cf; --vurgu2:#7dc0e0; --vurgu-acik:#132836; } }
-header.site a::before { content: "$"; }
+:root { --vurgu:#4ca3cf; --vurgu2:#2f86b6; --vurgu-acik:rgba(76,163,207,.12); --isik:rgba(76,163,207,.45); --vurgu-cizgi:rgba(76,163,207,.27); }
+header.site a::before, .marka::before { content: "$"; }
 </style>
 </head>
 <body>
-<div class="sarici">
-  <header class="site">
-    <a href="index.html">Paycheck &amp; Benefits</a>
-    <a href="../index.html" style="margin-left:auto;color:var(--soluk);text-decoration:none;font-size:.85rem">🇹🇷 Türkçe</a>
-  </header>
 
-  <h1>Know your paycheck. Know your benefits.</h1>
-  <p class="altbaslik">Social Security, wages, leave, credit and debt — short, clear rules
-  you can trust. Every number comes from official sources, and the source is always shown.</p>
-  <div class="rozetler">
-    <span class="rozet">✓ Official sources only (SSA · DOL · CFPB · FTC)</span>
-    <span class="rozet">✓ Updated when the numbers change</span>
-    <span class="rozet">✓ Free</span>
+<nav class="ust">
+  <div class="genis ic">
+    <a class="marka" href="index.html">Paycheck &amp; Benefits</a>
+    <div class="baglar">
+      <a class="gizlenebilir" href="#tools">Tools</a>
+      <a class="gizlenebilir" href="questions.html">Q&amp;A</a>
+      <a class="dil" href="../index.html">TR</a>
+      <a class="oncelikli" href="videos.html">▶ Videos</a>
+    </div>
   </div>
+</nav>
 
-  <a class="arac-kart" href="questions.html">
-    <div class="ikon">💵</div>
-    <div>
-      <h2>Money Rules: Q&amp;A</h2>
-      <p>Your paycheck, benefits, credit and debt rights — sourced answers, growing daily</p>
-    </div>
-  </a>
-  <a class="arac-kart" href="earnings-test.html">
-    <div class="ikon">🧮</div>
-    <div>
-      <h2>Social Security Earnings Test Calculator (2026)</h2>
-      <p>Working while collecting benefits? See exactly how much gets withheld</p>
-    </div>
-  </a>
-  <a class="arac-kart" href="videos.html">
-    <div class="ikon">🎬</div>
-    <div>
-      <h2>Videos</h2>
-      <p>One money rule a day — 60-second answers on YouTube</p>
-    </div>
-  </a>
+<div class="genis">
 
-  <div class="bilgi-kutu">
-    <h3>Data currency</h3>
-    2026 figures (COLA 2.8%, wage base $184,500, earnings limits) verified against ssa.gov
-    and cross-checked on <b>July 6, 2026</b>.
-  </div>
+  <!-- HERO -->
+  <section class="vitrin">
+    <div>
+      <span class="onsoz">Official sources only — SSA · DOL · CFPB · FTC</span>
+      <h1>Know your paycheck. Know your benefits.</h1>
+      <p class="altbaslik">Social Security, wages, leave, credit and debt — short, clear
+      rules you can act on. No guesswork, no fine print: every number is sourced and the
+      source is always on screen.</p>
+      <div class="cta-satir">
+        <a class="cta dolu" href="#tools">Explore the tools</a>
+        <a class="cta bos" href="questions.html">Read the rules</a>
+      </div>
+      <div class="istatistikler">
+        <div class="istat"><div class="deger">100%</div><div class="ad">Official sources</div></div>
+        <div class="istat"><div class="deger">Daily</div><div class="ad">New money rule</div></div>
+        <div class="istat"><div class="deger">2026</div><div class="ad">Figures verified</div></div>
+        <div class="istat"><div class="deger">Free</div><div class="ad">Always</div></div>
+      </div>
+    </div>
+    <div class="vitrin-gorsel">
+      <div class="mini-rozet">2026 · verified</div>
+      <div class="yuzen-kart">
+        <div class="etiket">Social Security — earnings test</div>
+        <div class="buyuk">$2,760</div>
+        <div class="satir"><span>Your 2026 earnings</span><b>$30,000</b></div>
+        <div class="satir"><span>Annual limit (under FRA)</span><b>$24,480</b></div>
+        <div class="satir"><span>Withholding rule</span><b>$1 per $2 over</b></div>
+        <div class="satir"><span>Source</span><b>ssa.gov</b></div>
+      </div>
+    </div>
+  </section>
 
-  <footer class="site">Educational content only — not legal or financial advice.
-  Verify with the relevant agency before acting.</footer>
+  <!-- TOOLS -->
+  <section id="tools">
+    <p class="kicker">Tools</p>
+    <h2 class="bolum">One question, one number, a clear answer</h2>
+    <p class="bolum-aciklama">Every tool shows its legal basis and data date. If the data
+    isn't verified, the tool says so instead of guessing.</p>
+    <div class="arac-izgara">
+      <a class="arac-kart" href="earnings-test.html">
+        <div class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4M16 2v4"/><path d="M7 12h4M7 16h7"/></svg></div>
+        <div><h3>Earnings Test Calculator</h3><p>Working while collecting Social Security? See your exact 2026 withholding</p></div>
+        <span class="ok">→</span>
+      </a>
+      <a class="arac-kart" href="questions.html">
+        <div class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.4 2.3c-.8.35-1.4 1-1.4 1.9v.3"/><circle cx="11.5" cy="17" r=".5"/></svg></div>
+        <div><h3>Money Rules: Q&amp;A</h3><p>Your paycheck, benefits, credit and debt rights — sourced, growing daily</p></div>
+        <span class="ok">→</span>
+      </a>
+      <a class="arac-kart" href="videos.html">
+        <div class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M10 9.5l5 2.5-5 2.5z"/></svg></div>
+        <div><h3>Videos</h3><p>One money rule a day — 60-second, sourced answers</p></div>
+        <span class="ok">→</span>
+      </a>
+      <a class="arac-kart" href="../index.html">
+        <div class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 4 5.7 4 9s-1.5 6.4-4 9c-2.5-2.6-4-5.7-4-9s1.5-6.4 4-9z"/></svg></div>
+        <div><h3>Türkçe — Hak &amp; Hesap</h3><p>Turkish tools: rent increase, severance pay, annual leave</p></div>
+        <span class="ok">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section>
+    <p class="kicker">Why trust it</p>
+    <h2 class="bolum">Not "roughly" — sourced, on screen</h2>
+    <div class="ozellikler">
+      <div class="ozellik"><div class="no">01</div><h3>Official sources only</h3>
+        <p>SSA, DOL, CFPB, FTC, NLRB. No blog folklore — the agency page is linked from
+        every answer.</p></div>
+      <div class="ozellik"><div class="no">02</div><h3>2026 figures verified</h3>
+        <p>COLA 2.8%, wage base $184,500, earnings limits $24,480 / $65,160 —
+        cross-checked July 6, 2026.</p></div>
+      <div class="ozellik"><div class="no">03</div><h3>Tested calculators</h3>
+        <p>The math that runs on this site passes an automated test suite — edge cases
+        and rounding included.</p></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section>
+    <div class="cta-band">
+      <h2>One money rule a day — in 60 seconds</h2>
+      <p>Can your boss keep your tips? What does claiming at 62 really cost? A new answer every day.</p>
+      <a class="cta dolu" href="videos.html">Watch on YouTube</a>
+    </div>
+  </section>
 </div>
+
+<footer class="zengin">
+  <div class="genis">
+    <div class="footer-izgara">
+      <div>
+        <h4>Paycheck &amp; Benefits</h4>
+        <p>Educational content only — not legal or financial advice. Verify with the
+        relevant agency before acting.</p>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <a href="earnings-test.html">Earnings Test Calculator</a>
+        <a href="questions.html">Money Rules Q&amp;A</a>
+        <a href="videos.html">Videos</a>
+      </div>
+      <div>
+        <h4>Sources</h4>
+        <a href="https://www.ssa.gov" rel="noopener" target="_blank">ssa.gov</a>
+        <a href="https://www.dol.gov" rel="noopener" target="_blank">dol.gov</a>
+        <a href="https://www.consumerfinance.gov" rel="noopener" target="_blank">consumerfinance.gov</a>
+        <a href="https://www.ftc.gov" rel="noopener" target="_blank">ftc.gov</a>
+      </div>
+    </div>
+    <div class="footer-alt">
+      <span>Figures verified: July 6, 2026</span>
+      <span>Türkçe: <a href="../index.html" style="display:inline;color:var(--vurgu)">Hak &amp; Hesap</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="../efekt.js"></script>
 </body>
 </html>

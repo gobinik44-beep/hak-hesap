@@ -23,73 +23,151 @@
 <link rel="stylesheet" href="stil.css">
 </head>
 <body>
-<div class="sarici">
-  <header class="site">
-    <a href="index.html">Hak &amp; Hesap</a>
-    <a href="en/index.html" style="margin-left:auto;color:var(--soluk);text-decoration:none;font-size:.85rem">🇺🇸 English</a>
-  </header>
 
-  <h1>Haklarınızı kuruşu kuruşuna bilin</h1>
-  <p class="altbaslik">Kira artışı, kıdem tazminatı, yıllık izin — güncel ve çapraz doğrulanmış
-  verilerle ücretsiz hesaplayın. Her araç yasal dayanağını ve kaynağını gösterir.</p>
-  <div class="rozetler">
-    <span class="rozet">✓ Resmî veri (TÜİK · HMB)</span>
-    <span class="rozet">✓ Çift kaynak doğrulaması</span>
-    <span class="rozet">✓ 41 otomatik hesap testi</span>
-    <span class="rozet">✓ Tamamen ücretsiz</span>
+<nav class="ust">
+  <div class="genis ic">
+    <a class="marka" href="index.html">Hak &amp; Hesap</a>
+    <div class="baglar">
+      <a class="gizlenebilir" href="#araclar">Araçlar</a>
+      <a class="gizlenebilir" href="kira-artis-oranlari.html">Güncel Oranlar</a>
+      <a class="gizlenebilir" href="sorular.html">Soru–Cevap</a>
+      <a class="dil" href="en/index.html">EN</a>
+      <a class="oncelikli" href="videolar.html">▶ Videolar</a>
+    </div>
   </div>
+</nav>
 
-  <a class="arac-kart" href="kira-artisi.html">
-    <div class="ikon">🏠</div>
-    <div>
-      <h2>Kira Artışı Hesaplama</h2>
-      <p>TÜFE 12 aylık ortalamaya göre yasal azami kira artışı (Temmuz 2026: %32,03)</p>
-    </div>
-  </a>
-  <a class="arac-kart" href="kira-artis-oranlari.html">
-    <div class="ikon">📊</div>
-    <div>
-      <h2>Aylara Göre Kira Artış Oranları</h2>
-      <p>2026'nın tüm ayları tek tabloda — her ay TÜİK verisiyle güncellenir</p>
-    </div>
-  </a>
-  <a class="arac-kart" href="kidem-tazminati.html">
-    <div class="ikon">💼</div>
-    <div>
-      <h2>Kıdem Tazminatı Hesaplama</h2>
-      <p>Güncel tavanla (Temmuz–Aralık 2026: 73.729,87 TL) brüt ve net kıdem tazminatı</p>
-    </div>
-  </a>
-  <a class="arac-kart" href="yillik-izin.html">
-    <div class="ikon">🏖️</div>
-    <div>
-      <h2>Yıllık İzin Hesaplama</h2>
-      <p>Hizmet yılına ve yaşa göre yasal asgari yıllık ücretli izin süresi</p>
-    </div>
-  </a>
-  <a class="arac-kart" href="sorular.html">
-    <div class="ikon">❓</div>
-    <div>
-      <h2>Haklarınız: Soru–Cevap</h2>
-      <p>İstifa, izin, depozito, iade… kanun dayanaklı kısa cevaplar — her gün büyüyor</p>
-    </div>
-  </a>
-  <a class="arac-kart" href="videolar.html">
-    <div class="ikon">🎬</div>
-    <div>
-      <h2>Videolar</h2>
-      <p>Güncel oranlar ve haklarınız — her ay yeni, kaynaklı anlatım videoları</p>
-    </div>
-  </a>
+<div class="genis">
 
-  <div class="bilgi-kutu">
-    <h3>Veri güncelliği</h3>
-    Son veri kontrolü: <b>5 Temmuz 2026</b>. Kira oranı her ay (TÜİK bülteni sonrası),
-    kıdem tavanı yılda iki kez (Ocak ve Temmuz) güncellenir.
-  </div>
+  <!-- VİTRİN -->
+  <section class="vitrin">
+    <div>
+      <span class="onsoz">TÜİK · HMB verisiyle her ay güncel</span>
+      <h1>Haklarınızı kuruşu kuruşuna bilin.</h1>
+      <p class="altbaslik">Kira artışından kıdem tazminatına, yıllık izinden tüketici
+      haklarına — tüm hesaplar resmî kaynaklı, çift doğrulamalı ve tamamen ücretsiz.
+      Tahmin yok, "yaklaşık" yok: kanun neyse, rakam o.</p>
+      <div class="cta-satir">
+        <a class="cta dolu" href="#araclar">Hesaplamaya başla</a>
+        <a class="cta bos" href="sorular.html">Haklarımı öğren</a>
+      </div>
+      <div class="istatistikler">
+        <div class="istat"><div class="deger">%100</div><div class="ad">Resmî kaynak</div></div>
+        <div class="istat"><div class="deger">47</div><div class="ad">Otomatik hesap testi</div></div>
+        <div class="istat"><div class="deger">Günlük</div><div class="ad">Yeni içerik</div></div>
+        <div class="istat"><div class="deger">2 dil</div><div class="ad">TR + EN</div></div>
+      </div>
+    </div>
+    <div class="vitrin-gorsel">
+      <div class="mini-rozet">Temmuz 2026 · güncel</div>
+      <div class="yuzen-kart">
+        <div class="etiket">Kira Artışı — yasal üst sınır</div>
+        <div class="buyuk">%32,03</div>
+        <div class="satir"><span>Mevcut kira</span><b>20.000,00 TL</b></div>
+        <div class="satir"><span>Aylık artış</span><b>+6.406,00 TL</b></div>
+        <div class="satir"><span>Yeni azami kira</span><b style="color:var(--vurgu)">26.406,00 TL</b></div>
+        <div class="satir"><span>Kaynak</span><b>TÜİK · TBK m.344</b></div>
+      </div>
+    </div>
+  </section>
 
-  <footer class="site">Bu site bilgilendirme amaçlıdır; hukuki veya mali danışmanlık değildir.
-  Resmî işlemlerde ilgili kurumdan ya da uzmandan doğrulama alınız.</footer>
+  <!-- ARAÇLAR -->
+  <section id="araclar">
+    <p class="kicker">Araçlar</p>
+    <h2 class="bolum">Bir soru, bir rakam, net cevap</h2>
+    <p class="bolum-aciklama">Her araç yasal dayanağını ve veri tarihini üzerinde taşır;
+    kapsam dışı tarih girersen hesap uydurmaz, "veri yok" der.</p>
+    <div class="arac-izgara">
+      <a class="arac-kart" href="kira-artisi.html">
+        <div class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 9.5V21h14V9.5"/><path d="M9 21v-6h6v6"/></svg></div>
+        <div><h3>Kira Artışı Hesaplama</h3><p>TÜFE 12 aylık ortalamaya göre yasal azami artış — Temmuz 2026: %32,03</p></div>
+        <span class="ok">→</span>
+      </a>
+      <a class="arac-kart" href="kira-artis-oranlari.html">
+        <div class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-7"/><path d="M22 20H2"/></svg></div>
+        <div><h3>Aylara Göre Oranlar</h3><p>2026'nın tüm ayları tek tabloda — her ay TÜİK bülteniyle güncellenir</p></div>
+        <span class="ok">→</span>
+      </a>
+      <a class="arac-kart" href="kidem-tazminati.html">
+        <div class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg></div>
+        <div><h3>Kıdem Tazminatı</h3><p>Güncel tavanla (73.729,87 TL) brüt, damga vergisi ve net tutar</p></div>
+        <span class="ok">→</span>
+      </a>
+      <a class="arac-kart" href="yillik-izin.html">
+        <div class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 11h18"/></svg></div>
+        <div><h3>Yıllık İzin</h3><p>Hizmet yılına ve yaşa göre yasal asgari izin süreniz</p></div>
+        <span class="ok">→</span>
+      </a>
+      <a class="arac-kart" href="sorular.html">
+        <div class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.4 2.3c-.8.35-1.4 1-1.4 1.9v.3"/><circle cx="11.5" cy="17" r=".5"/></svg></div>
+        <div><h3>Haklarınız: Soru–Cevap</h3><p>İstifa, depozito, iade, fazla mesai… kanun dayanaklı kısa cevaplar</p></div>
+        <span class="ok">→</span>
+      </a>
+      <a class="arac-kart" href="videolar.html">
+        <div class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M10 9.5l5 2.5-5 2.5z"/></svg></div>
+        <div><h3>Videolar</h3><p>Her gün 1 hak, her ay güncel oranlar — 60 saniyelik anlatımlar</p></div>
+        <span class="ok">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- NEDEN GÜVENİLİR -->
+  <section id="neden">
+    <p class="kicker">Neden Hak &amp; Hesap</p>
+    <h2 class="bolum">"Yaklaşık" değil, kaynağı gösterilen rakam</h2>
+    <div class="ozellikler">
+      <div class="ozellik"><div class="no">01</div><h3>Yalnız resmî kaynak</h3>
+        <p>TÜİK bültenleri ve Hazine ve Maliye Bakanlığı genelgeleri. Basındaki çelişkili
+        rakamlar değil, genelgenin kendisi esas alınır.</p></div>
+      <div class="ozellik"><div class="no">02</div><h3>Çift doğrulama</h3>
+        <p>Her veri en az iki bağımsız kaynakla çapraz kontrol edilmeden siteye girmez;
+        veri tarihi her sayfada açıkça yazar.</p></div>
+      <div class="ozellik"><div class="no">03</div><h3>Testli hesap motoru</h3>
+        <p>Hesap mantığı 47 otomatik testten geçer — kuruş yuvarlamaları ve dönem sınırı
+        geçişleri dahil. Sitede çalışan kod, test edilen kodun aynısıdır.</p></div>
+    </div>
+  </section>
+
+  <!-- CTA BANDI -->
+  <section>
+    <div class="cta-band">
+      <h2>Her gün 1 hak — 60 saniyede</h2>
+      <p>İstifa eden tazminat alır mı? Depozito kaç kira olabilir? Her gün yeni bir cevap YouTube'da.</p>
+      <a class="cta dolu" href="videolar.html">Videoları izle</a>
+    </div>
+  </section>
 </div>
+
+<!-- FOOTER -->
+<footer class="zengin">
+  <div class="genis">
+    <div class="footer-izgara">
+      <div>
+        <h4>Hak &amp; Hesap</h4>
+        <p>Zorunlu hesapların doğrulanmış adresi. Bu site bilgilendirme amaçlıdır; hukuki
+        veya mali danışmanlık değildir. Resmî işlemlerde ilgili kurumdan doğrulama alınız.</p>
+      </div>
+      <div>
+        <h4>Araçlar</h4>
+        <a href="kira-artisi.html">Kira Artışı</a>
+        <a href="kidem-tazminati.html">Kıdem Tazminatı</a>
+        <a href="yillik-izin.html">Yıllık İzin</a>
+        <a href="kira-artis-oranlari.html">Aylık Oranlar</a>
+      </div>
+      <div>
+        <h4>İçerik</h4>
+        <a href="sorular.html">Soru–Cevap</a>
+        <a href="videolar.html">Videolar</a>
+        <a href="en/index.html">English — Paycheck &amp; Benefits</a>
+      </div>
+    </div>
+    <div class="footer-alt">
+      <span>Son veri kontrolü: 5 Temmuz 2026</span>
+      <span>Kaynaklar: TÜİK · Hazine ve Maliye Bakanlığı</span>
+    </div>
+  </div>
+</footer>
+
+<script src="efekt.js"></script>
 </body>
 </html>
