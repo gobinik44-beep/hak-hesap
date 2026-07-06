@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>İşçi, Kiracı ve Tüketici Hakları: Soru–Cevap | Hak &amp; Hesap</title>
+<meta name="description" content="İstifa eden kıdem alır mı? Depozito kaç kira olabilir? Kullanılmayan izin yanar mı? Kanun dayanaklı, doğrulanmış soru-cevaplar.">
+<link rel="canonical" href="https://gobinik44-beep.github.io/hak-hesap/sorular.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Haklarınız: Soru–Cevap Bankası">
+<meta property="og:description" content="İşçi, kiracı ve tüketici hakları — kanun dayanaklı kısa cevaplar.">
+<meta property="og:url" content="https://gobinik44-beep.github.io/hak-hesap/sorular.html">
+<meta property="og:locale" content="tr_TR">
+<link rel="stylesheet" href="stil.css">
+</head>
+<body>
+<div class="sarici">
+  <header class="site"><a href="index.html">← Hak &amp; Hesap</a></header>
+  <h1>Haklarınız: Soru–Cevap</h1>
+  <p class="altbaslik">Her cevap kanun dayanağıyla birlikte. Bu sorular aynı zamanda
+  YouTube kanalımızda her gün kısa video olarak yayınlanıyor.</p>
+
+  <div id="liste"></div>
+
+  <footer class="site">Bu sayfa bilgilendirme amaçlıdır; hukuki danışmanlık değildir.</footer>
+</div>
+
+<script src="sorular.js"></script>
+<script>
+(function () {
+  var adlar = { "kıdem": "Kıdem Tazminatı", "ihbar": "İhbar Süresi", "deneme": "Deneme Süresi",
+                "maaş": "Maaş ve Ücret", "fazla-mesai": "Fazla Mesai", "izin": "Yıllık İzin",
+                "kira": "Kira ve Konut", "tüketici": "Tüketici Hakları" };
+  var gruplar = {};
+  SORULAR.forEach(function (s) { (gruplar[s.kategori] = gruplar[s.kategori] || []).push(s); });
+  var kok = document.getElementById("liste");
+  Object.keys(gruplar).forEach(function (k) {
+    var kart = document.createElement("div");
+    kart.className = "kart";
+    var h = "<h2>" + (adlar[k] || k) + "</h2>";
+    gruplar[k].forEach(function (s) {
+      h += "<h3>" + s.soru + "</h3><p>" + s.cevap_soz +
+           " <span class='veri-notu'>(Dayanak: " + s.dayanak + ")</span></p>";
+    });
+    kart.innerHTML = h;
+    kok.appendChild(kart);
+  });
+})();
+</script>
+</body>
+</html>
