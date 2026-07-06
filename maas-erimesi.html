@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maaşım Ne Kadar Eridi? Maaş Erime Hesaplama (Yıllık TÜFE %32,11) | Hak &amp; Hesap</title>
+<meta name="description" content="Maaşınız enflasyon karşısında ne kadar eridi? Yıllık TÜFE (Haziran 2026: %32,11) ile alım gücü kaybınızı ve erimemesi için gereken maaşı hesaplayın.">
+<link rel="canonical" href="https://gobinik44-beep.github.io/hak-hesap/maas-erimesi.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Maaşım Ne Kadar Eridi? — Alım Gücü Hesaplama">
+<meta property="og:description" content="Yıllık TÜFE ile maaşınızın gerçek alım gücünü hesaplayın.">
+<meta property="og:url" content="https://gobinik44-beep.github.io/hak-hesap/maas-erimesi.html">
+<meta property="og:locale" content="tr_TR">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="stil.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Maaş Erimesi Hesaplama",
+ "url":"https://gobinik44-beep.github.io/hak-hesap/maas-erimesi.html",
+ "applicationCategory":"FinanceApplication","operatingSystem":"Web",
+ "offers":{"@type":"Offer","price":"0","priceCurrency":"TRY"},
+ "description":"Yıllık TÜFE ile maaşın alım gücü kaybını hesaplayan araç."}
+</script>
+</head>
+<body>
+<div class="sarici">
+  <header class="site"><a href="index.html">← Hak &amp; Hesap</a></header>
+  <h1>Maaşım Ne Kadar Eridi?</h1>
+  <p class="altbaslik">12 ay önceki maaşınla bugünkünü karşılaştırır; TÜİK yıllık TÜFE'sine
+  göre <b>gerçek alım gücü değişimini</b> ve maaşının erimemesi için bugün olması gereken
+  tutarı gösterir.</p>
+
+  <div class="kart">
+    <label for="eski">12 ay önceki net maaşın (TL)</label>
+    <input type="number" id="eski" min="1" step="any" placeholder="Örn: 40000" inputmode="decimal">
+
+    <label for="yeni">Bugünkü net maaşın (TL)</label>
+    <input type="number" id="yeni" min="1" step="any" placeholder="Zam almadıysan aynı tutarı yaz" inputmode="decimal">
+
+    <button id="hesapla">Hesapla</button>
+    <div class="hata" id="hata"></div>
+
+    <div class="sonuc" id="sonuc">
+      <div class="buyuk-sonuc">
+        <div class="etiket">Alım gücündeki gerçek değişim (enflasyondan arındırılmış)</div>
+        <div class="deger" id="reel"></div>
+      </div>
+      <table class="detay">
+        <tr><td>Erimemesi için bugün olması gereken maaş</td><td id="gereken"></td></tr>
+        <tr><td>Bugünkü maaşının 12 ay önceki karşılığı</td><td id="karsilik"></td></tr>
+        <tr><td>Gereken tutara göre fark</td><td id="fark"></td></tr>
+        <tr><td>Kullanılan yıllık TÜFE</td><td id="tufe"></td></tr>
+      </table>
+      <p class="veri-notu" id="not"></p>
+    </div>
+  </div>
+
+  <div class="bilgi-kutu">
+    <h3>Nasıl hesaplanıyor?</h3>
+    <ul>
+      <li>TÜİK'in açıkladığı <b>yıllık TÜFE</b> kullanılır (Haziran 2026: %32,11 — kira
+      artışındaki 12 aylık ortalamayla karıştırılmamalıdır).</li>
+      <li>Reel değişim = (bugünkü maaş ÷ eski maaş) ÷ (1 + enflasyon) − 1.</li>
+      <li>Kişisel enflasyonun (kira, gıda ağırlığına göre) resmî orandan farklı olabilir;
+      bu hesap resmî TÜFE'yi esas alır.</li>
+    </ul>
+  </div>
+
+  <div class="bilgi-kutu">
+    <h3>Veri kaynağı</h3>
+    TÜİK Haziran 2026 TÜFE bülteni (3 Temmuz 2026): yıllık değişim <b>%32,11</b>.
+    Her ay yeni bültenle güncellenir. Son kontrol: <b id="veriTarihi"></b>.
+  </div>
+
+  <footer class="site">Bu araç bilgilendirme amaçlıdır; mali danışmanlık değildir.</footer>
+</div>
+
+<script src="veri.js"></script>
+<script src="hesap.js"></script>
+<script>
+(function () {
+  document.getElementById("veriTarihi").textContent = VERI.sonGuncelleme;
+  document.getElementById("hesapla").addEventListener("click", function () {
+    var hataEl = document.getElementById("hata");
+    var sonucEl = document.getElementById("sonuc");
+    hataEl.classList.remove("acik"); sonucEl.classList.remove("acik");
+
+    var eski = parseFloat(document.getElementById("eski").value);
+    var yeni = parseFloat(document.getElementById("yeni").value);
+    var s = HESAP.maasErimesi(eski, yeni, VERI.yillikTufe.oran);
+    if (s.hata) { hataEl.textContent = s.hata; hataEl.classList.add("acik"); return; }
+
+    var isaret = s.reelYuzde > 0 ? "+" : "";
+    document.getElementById("reel").textContent = isaret + s.reelYuzde.toLocaleString("tr-TR") + "%";
+    document.getElementById("gereken").textContent = HESAP.tl(s.gereken);
+    document.getElementById("karsilik").textContent = HESAP.tl(s.eskidenKarsiligi);
+    document.getElementById("fark").textContent = (s.fark >= 0 ? "+" : "−") + HESAP.tl(Math.abs(s.fark));
+    document.getElementById("tufe").textContent = "%" + VERI.yillikTufe.oran.toLocaleString("tr-TR") +
+      " (" + VERI.yillikTufe.donem + ")";
+    document.getElementById("not").textContent = s.reelYuzde < 0
+      ? "Maaşın enflasyonun altında kaldı: bugünkü maaşın, 12 ay önceki parayla " +
+        HESAP.tl(s.eskidenKarsiligi) + " alım gücüne denk geliyor."
+      : "Maaşın enflasyonun üzerinde arttı — alım gücün korunmuş.";
+    sonucEl.classList.add("acik");
+  });
+})();
+</script>
+<script src="efekt.js"></script>
+</body>
+</html>

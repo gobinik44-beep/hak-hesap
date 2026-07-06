@@ -86,6 +86,32 @@ esit("izin 16 yil yas 55 (26 kalir)", H.izinHesapla(16, 55, false).gun, 26);
 esit("izin yeralti 2 yil (+4)", H.izinHesapla(2, null, true).gun, 18);
 esit("izin 0 yil hak yok", H.izinHesapla(0, null, false).gun, 0);
 
+// ================= ZEKÂT =================
+// Varlık 500.000, borç 100.000, gram 4.000 TL: net 400.000; nisab 80,18×4.000=320.720
+// → yükümlü; zekât 400.000×%2,5 = 10.000
+let z = H.zekatHesapla(500000, 100000, 4000, VERI);
+esit("zekat nisab", z.nisab, 320720);
+esit("zekat yukumlu", z.yukumlu, true);
+esit("zekat tutar", z.zekat, 10000);
+// Nisab altı: 100.000 net < 320.720 → yükümlü değil
+z = H.zekatHesapla(100000, 0, 4000, VERI);
+esit("zekat nisab alti", z.yukumlu, false);
+esit("zekat nisab alti tutar", z.zekat, 0);
+esit("zekat gram fiyat hata", !!H.zekatHesapla(100000, 0, 0, VERI).hata, true);
+
+// ================= MAAŞ ERİMESİ =================
+// Eski 40.000, yeni 40.000 (zam yok), enf %32,11:
+// gereken 52.844; reel = (1/1,3211−1)×100 = −24,31; eski karşılığı 30.277,80
+let m = H.maasErimesi(40000, 40000, 32.11);
+esit("maas gereken", m.gereken, 52844);
+esit("maas reel yuzde", m.reelYuzde, -24.31);
+esit("maas eski karsilik", m.eskidenKarsiligi, 30277.8);
+// Tam enflasyon kadar zam: reel değişim 0
+m = H.maasErimesi(40000, 52844, 32.11);
+esit("maas tam zam reel 0", m.reelYuzde, 0);
+esit("maas tam zam fark 0", m.fark, 0);
+esit("maas hata", !!H.maasErimesi(0, 5000, 32.11).hata, true);
+
 // ================= EN: SSA EARNINGS TEST =================
 const HEN = require("./hesap_en.js");
 const USA = VERI.usa2026;

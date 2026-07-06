@@ -57,7 +57,8 @@ Statik site, derleme gerektirmez. `index.html`'i tarayıcıda açmak yeterli.
 - sitemap.xml + robots.txt.
 
 ## Aylık SEO görevleri (veri güncellemesiyle birlikte, ~10 dk)
-1. `veri.js`: yeni ayın oranını ekle (çift kaynak kuralı) + `sonGuncelleme`.
+1. `veri.js`: yeni ayın kira oranını ekle (çift kaynak kuralı) + `yillikTufe`
+   (yıllık TÜFE — maaş erimesi aracı bunu kullanır) + `sonGuncelleme`.
 2. `kira-artisi.html`: title / meta description / SSS içindeki AY ve ORAN değerlerini yenile
    (şu an "Temmuz 2026, %32,03 / yıllık %32,11" yazan yerler).
 3. `sitemap.xml`: değişen sayfaların `lastmod` tarihini güncelle.

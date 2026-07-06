@@ -110,6 +110,31 @@ var HESAP = (function () {
     return { gun: gun, yasKurali: yasKurali };
   }
 
+  // ---------- ZEKÂT (Diyanet ölçüleri) ----------
+  // varlikTL: zekâta tabi tüm varlıkların TL toplamı (altın dahil, TL'ye çevrilmiş)
+  // borcTL: düşülecek borçlar; gramAltinFiyat: güncel 24 ayar gram satış fiyatı
+  function zekatHesapla(varlikTL, borcTL, gramAltinFiyat, veri) {
+    if (!(gramAltinFiyat > 0)) return { hata: "Güncel gram altın fiyatını girin." };
+    if (!(varlikTL >= 0) || !(borcTL >= 0)) return { hata: "Geçerli tutarlar girin." };
+    var net = kurus(varlikTL - borcTL);
+    var nisab = kurus(veri.zekat.nisabAltinGram * gramAltinFiyat);
+    if (net < nisab) return { nisab: nisab, net: net, yukumlu: false, zekat: 0 };
+    return { nisab: nisab, net: net, yukumlu: true, zekat: kurus(net * veri.zekat.oran) };
+  }
+
+  // ---------- MAAŞ ERİMESİ ----------
+  // eski: 12 ay önceki maaş, yeni: bugünkü maaş, enfYuzde: yıllık TÜFE (%).
+  function maasErimesi(eski, yeni, enfYuzde) {
+    if (!(eski > 0) || !(yeni > 0)) return { hata: "Geçerli maaş tutarları girin." };
+    var carpan = 1 + enfYuzde / 100;
+    return {
+      gereken: kurus(eski * carpan),                    // erimemesi için bugünkü karşılık
+      reelYuzde: kurus((yeni / eski / carpan - 1) * 100), // alım gücündeki gerçek değişim
+      eskidenKarsiligi: kurus(yeni / carpan),           // bugünkü maaşın 12 ay önceki değeri
+      fark: kurus(yeni - kurus(eski * carpan))
+    };
+  }
+
   // ---------- Para biçimlendirme ----------
   function tl(x) {
     return x.toLocaleString("tr-TR", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " TL";
@@ -121,6 +146,8 @@ var HESAP = (function () {
     kidemTavani: kidemTavani,
     kidemHesapla: kidemHesapla,
     izinHesapla: izinHesapla,
+    zekatHesapla: zekatHesapla,
+    maasErimesi: maasErimesi,
     tl: tl
   };
 })();

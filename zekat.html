@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zekât Hesaplama — Diyanet Ölçüleriyle (Nisab 80,18 gr Altın) | Hak &amp; Hesap</title>
+<meta name="description" content="Zekât hesaplama: Diyanet ölçüleriyle (nisab 80,18 gr altın, oran %2,5). Altın, nakit, döviz ve alacaklarınızdan borçlarınızı düşerek zekâtınızı hesaplayın.">
+<link rel="canonical" href="https://gobinik44-beep.github.io/hak-hesap/zekat.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Zekât Hesaplama — Diyanet Ölçüleriyle">
+<meta property="og:description" content="Nisab 80,18 gr altın, oran %2,5. Doğrulanmış dini ölçülerle zekât hesaplama.">
+<meta property="og:url" content="https://gobinik44-beep.github.io/hak-hesap/zekat.html">
+<meta property="og:locale" content="tr_TR">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="stil.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Zekât Hesaplama",
+ "url":"https://gobinik44-beep.github.io/hak-hesap/zekat.html",
+ "applicationCategory":"FinanceApplication","operatingSystem":"Web",
+ "offers":{"@type":"Offer","price":"0","priceCurrency":"TRY"},
+ "description":"Diyanet ölçüleriyle (nisab 80,18 gr altın, %2,5) zekât hesaplama aracı."}
+</script>
+</head>
+<body>
+<div class="sarici">
+  <header class="site"><a href="index.html">← Hak &amp; Hesap</a></header>
+  <h1>Zekât Hesaplama</h1>
+  <p class="altbaslik">Diyanet İşleri Başkanlığı ölçüleriyle: nisab <b>80,18 gr altın</b>,
+  oran <b>%2,5</b> (kırkta bir). Varlıklarından borçların düşülür; kalan nisaba ulaşıyorsa
+  zekât gerekir.</p>
+
+  <div class="kart">
+    <label for="gram">Güncel gram altın satış fiyatı (TL) — 24 ayar</label>
+    <input type="number" id="gram" min="1" step="any" placeholder="Bugünkü fiyatı bankandan/kuyumcudan kontrol et" inputmode="decimal">
+    <p class="veri-notu">Fiyat sürekli değiştiği için güncel değeri sen giriyorsun — böylece
+    hesap her zaman günceldir.</p>
+
+    <label for="altin">Sahip olunan altın (gram, 24 ayar karşılığı)</label>
+    <input type="number" id="altin" min="0" step="any" placeholder="Örn: 150" inputmode="decimal">
+
+    <label for="nakit">Nakit + döviz karşılığı + banka hesapları (TL)</label>
+    <input type="number" id="nakit" min="0" step="any" placeholder="Örn: 200000" inputmode="decimal">
+
+    <label for="alacak">Alacaklar + ticari mal değeri (TL)</label>
+    <input type="number" id="alacak" min="0" step="any" placeholder="Yoksa boş bırak" inputmode="decimal">
+
+    <label for="borc">Borçlar (düşülür) (TL)</label>
+    <input type="number" id="borc" min="0" step="any" placeholder="Yoksa boş bırak" inputmode="decimal">
+
+    <button id="hesapla">Hesapla</button>
+    <div class="hata" id="hata"></div>
+
+    <div class="sonuc" id="sonuc">
+      <div class="buyuk-sonuc">
+        <div class="etiket" id="sonucEtiket">Verilecek zekât</div>
+        <div class="deger" id="zekat"></div>
+      </div>
+      <table class="detay">
+        <tr><td>Zekâta tabi net varlık</td><td id="net"></td></tr>
+        <tr><td>Nisab (80,18 gr × girilen fiyat)</td><td id="nisab"></td></tr>
+        <tr><td>Oran</td><td>%2,5 (1/40)</td></tr>
+      </table>
+      <p class="veri-notu" id="not"></p>
+    </div>
+  </div>
+
+  <div class="bilgi-kutu">
+    <h3>Zekâtın şartları (özet)</h3>
+    <ul>
+      <li>Temel ihtiyaçlar ve borçlar dışındaki varlık, nisaba (80,18 gr altın karşılığı) ulaşmalı.</li>
+      <li>Bu varlığın üzerinden <b>1 kamerî yıl</b> geçmiş olmalı.</li>
+      <li>Oturduğun ev, aracın, ev eşyan gibi temel ihtiyaçlar zekâta tabi değildir.</li>
+      <li>Kadınların takı olarak kullandığı altınlar hakkında görüş farkı vardır; Diyanet'e göre
+      nisabı aşıyorsa zekâta tabidir.</li>
+    </ul>
+  </div>
+
+  <div class="bilgi-kutu">
+    <h3>Kaynak</h3>
+    Ölçüler Diyanet İşleri Başkanlığı Din İşleri Yüksek Kurulu kararlarına dayanır
+    (nisab: 80,18 gr 24 ayar altın; oran: 1/40). Özel durumlar için il/ilçe müftülüğüne
+    veya Diyanet'in fetva hattına danışabilirsiniz.
+  </div>
+
+  <footer class="site">Bu araç bilgilendirme amaçlıdır; dini fetva makamı değildir.</footer>
+</div>
+
+<script src="veri.js"></script>
+<script src="hesap.js"></script>
+<script>
+(function () {
+  function say(id) { var v = parseFloat(document.getElementById(id).value); return isNaN(v) ? 0 : v; }
+  document.getElementById("hesapla").addEventListener("click", function () {
+    var hataEl = document.getElementById("hata");
+    var sonucEl = document.getElementById("sonuc");
+    hataEl.classList.remove("acik"); sonucEl.classList.remove("acik");
+
+    var gram = parseFloat(document.getElementById("gram").value);
+    var varlik = say("altin") * (gram || 0) + say("nakit") + say("alacak");
+    var s = HESAP.zekatHesapla(varlik, say("borc"), gram, VERI);
+    if (s.hata) { hataEl.textContent = s.hata; hataEl.classList.add("acik"); return; }
+
+    document.getElementById("net").textContent = HESAP.tl(s.net);
+    document.getElementById("nisab").textContent = HESAP.tl(s.nisab);
+    if (s.yukumlu) {
+      document.getElementById("sonucEtiket").textContent = "Verilecek zekât";
+      document.getElementById("zekat").textContent = HESAP.tl(s.zekat);
+      document.getElementById("not").textContent =
+        "Not: Zekât, üzerinden 1 kamerî yıl geçen varlık için verilir.";
+    } else {
+      document.getElementById("sonucEtiket").textContent = "Sonuç";
+      document.getElementById("zekat").textContent = "Zekât gerekmiyor";
+      document.getElementById("not").textContent =
+        "Net varlığın nisabın altında kaldığı için zekât yükümlülüğü doğmuyor.";
+    }
+    sonucEl.classList.add("acik");
+  });
+})();
+</script>
+<script src="efekt.js"></script>
+</body>
+</html>

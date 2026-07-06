@@ -52,6 +52,16 @@ var VERI = {
   // Kıdem tazminatı kesintisi: yalnız damga vergisi (binde 7,59).
   damgaVergisiOrani: 0.00759,
 
+  // --- MAAŞ ERİMESİ ---
+  // Yıllık TÜFE (12 aylık ortalama DEĞİL, yıllık değişim). Her ay bültenle güncellenir.
+  // Kaynak: TÜİK Haziran 2026 bülteni (03.07.2026), iki kaynakla doğrulandı.
+  yillikTufe: { donem: "Haziran 2026", oran: 32.11 },
+
+  // --- ZEKÂT ---
+  // Diyanet İşleri Başkanlığı Din İşleri Yüksek Kurulu ölçüleri:
+  // nisab = 80,18 gr (24 ayar) altın; oran = 1/40 (%2,5). Değişmez dini ölçü.
+  zekat: { nisabAltinGram: 80.18, oran: 0.025 },
+
   // --- EN (Paycheck & Benefits) ---
   youtubeKanalIdEN: "UCNK3iz5U6uU3QmkSYS_lCog",
   // US Social Security 2026 (kaynak: ssa.gov, çapraz doğrulandı 2026-07-06)
